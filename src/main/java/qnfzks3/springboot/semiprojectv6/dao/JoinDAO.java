@@ -1,7 +1,7 @@
-package qnfzks3.springboot.semiprojectv6boot.dao;
+package qnfzks3.springboot.semiprojectv6.dao;
 
-import qnfzks3.springboot.semiprojectv5.model.Member;
-import qnfzks3.springboot.semiprojectv5.model.Zipcode;
+import qnfzks3.springboot.semiprojectv6.model.Member;
+import qnfzks3.springboot.semiprojectv6.model.Zipcode;
 
 import java.util.List;
 

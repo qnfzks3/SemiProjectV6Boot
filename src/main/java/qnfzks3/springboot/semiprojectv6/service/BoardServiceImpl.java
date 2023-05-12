@@ -1,9 +1,9 @@
-package qnfzks3.springboot.semiprojectv6boot.service;
+package qnfzks3.springboot.semiprojectv6.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import qnfzks3.springboot.semiprojectv5.dao.BoardDAO;
-import qnfzks3.springboot.semiprojectv5.model.Board;
+import qnfzks3.springboot.semiprojectv6.dao.BoardDAO;
+import qnfzks3.springboot.semiprojectv6.model.Board;
 
 import java.util.HashMap;
 import java.util.List;

@@ -1,4 +1,4 @@
-package qnfzks3.springboot.semiprojectv6boot;
+package qnfzks3.springboot.semiprojectv6;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

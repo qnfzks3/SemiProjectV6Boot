@@ -1,6 +1,6 @@
-package qnfzks3.springboot.semiprojectv6boot.dao;
+package qnfzks3.springboot.semiprojectv6.dao;
 
-import qnfzks3.springboot.semiprojectv5.model.Board;
+import qnfzks3.springboot.semiprojectv6.model.Board;
 
 import java.util.List;
 import java.util.Map;

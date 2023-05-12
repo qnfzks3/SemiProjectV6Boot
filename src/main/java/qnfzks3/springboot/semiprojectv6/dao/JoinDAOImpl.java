@@ -1,10 +1,10 @@
-package qnfzks3.springboot.semiprojectv6boot.dao;
+package qnfzks3.springboot.semiprojectv6.dao;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import qnfzks3.springboot.semiprojectv5.model.Member;
-import qnfzks3.springboot.semiprojectv5.model.Zipcode;
+import qnfzks3.springboot.semiprojectv6.model.Member;
+import qnfzks3.springboot.semiprojectv6.model.Zipcode;
 
 import java.util.List;
 

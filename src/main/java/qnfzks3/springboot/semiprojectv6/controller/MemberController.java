@@ -1,11 +1,11 @@
-package qnfzks3.springboot.semiprojectv6boot.controller;
+package qnfzks3.springboot.semiprojectv6.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import qnfzks3.springboot.semiprojectv5.model.Member;
-import qnfzks3.springboot.semiprojectv5.service.MemberService;
+import qnfzks3.springboot.semiprojectv6.model.Member;
+import qnfzks3.springboot.semiprojectv6.service.MemberService;
 
 import javax.servlet.http.HttpSession;
 

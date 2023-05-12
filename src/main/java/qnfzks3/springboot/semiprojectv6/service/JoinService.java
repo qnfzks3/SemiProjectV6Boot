@@ -1,6 +1,6 @@
-package qnfzks3.springboot.semiprojectv6boot.service;
+package qnfzks3.springboot.semiprojectv6.service;
 
-import qnfzks3.springboot.semiprojectv5.model.Member;
+import qnfzks3.springboot.semiprojectv6.model.Member;
 
 public interface JoinService {
 

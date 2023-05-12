@@ -1,6 +1,6 @@
-package qnfzks3.springboot.semiprojectv6boot.service;
+package qnfzks3.springboot.semiprojectv6.service;
 
-import qnfzks3.springboot.semiprojectv5.model.Board;
+import qnfzks3.springboot.semiprojectv6.model.Board;
 
 import java.util.List;
 

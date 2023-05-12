@@ -1,4 +1,4 @@
-package qnfzks3.springboot.semiprojectv6boot.model;
+package qnfzks3.springboot.semiprojectv6.model;
 
 import lombok.Data;
 
