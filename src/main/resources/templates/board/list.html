@@ -5,7 +5,10 @@
 
 <th:block layout:fragment="content">
 
-  <div id="main" >
+  <div id="main" th:with="pglink=${'/board/list?cpg='}">
+    <!--pglink 변수 명(v)= 값    변수를 선언할 때 테그 안에서만 적용됨 그래서 메인 테그 안에 적어넣어줌 -->
+
+
     <div class="mt-5">
       <i class="fa-solid fa-pen-to-square fa-2xl"> 게시판 </i>
       <hr>
@@ -23,7 +26,7 @@
           </select></div>
         <div class="col-4">
           <input type="text" class="form-control col-2" id="findkey"
-                 value=""></div>
+                 th:value="${fkey}"></div> <!--다른 곳에서 받아올때 th:* =쓰고 "${가져올 변수}"로 한다.-->
         <div class="col-3">
           <button type="button" class="btn btn-light" id="findbtn">
             <i class="fa-solid fa-magnifying-glass"> </i> 검색하기</button></div>
@@ -54,13 +57,18 @@
             <th>2023-05-04</th>
             <th>567</th>
             <th>1345</th></tr>
-
-          <tr><td>&nbsp;</td>
-            <td><a href="/board/view?bno=">&nbsp;</a></td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td></tr>
+          <!--<c:forEach items="${bdlist}" var="bd">   -->
+          <!--bdlist에서 bd를 가져온다. - 테이블 -->
+          <tr th:each="bd : ${bdlist}">
+            <td th:text="${bd.bno}">&nbsp;</td>
+            <td><a th:href="|/board/view?bno=${bd.bno}|" th:text="${bd.title}">&nbsp;</a></td>
+            <!--?는 if문 같이 작동하기때문에 |   | 안에 써주자-->
+            <td th:text="${bd.userid}">&nbsp;</td>
+            <td th:text="${#strings.substring(bd.regdate,0,10)}">&nbsp;</td>
+            <!--#strings.substring(bd.regdate,0,10)첫번째부터 9번째까지 글자-뒤에 시간 빼고 출력-->
+            <td th:text="${bd.thumbs}">&nbsp;</td>
+            <td th:text="${bd.views}">&nbsp;</td>
+          </tr>
 
           </tbody>
         </table>
@@ -71,18 +79,55 @@
       <div class="offset-2 col-8">
         <nav>
           <ul class="pagination justify-content-center">
+                    <!--foreach-->
 
-            <li class="page-item">
-              <a class="page-link" href="${pglink}">처음</a></li>
+            <th:block th:if="${cpg gt 1}">  <!--gt는 < 와 같음 cpg 1보다 클 때 실행-->
 
-            <li class="page-item">
-              <a class="page-link" href="${pglink}">이전</a></li>
+              <li class="page-item">
+                <a class="page-link" th:href="|${pglink}1|" th:text="처음"> </a>
+              </li>
 
-            <li class="page-item">
-              <a class="page-link" href="${pglink}${cpg+1}">다음</a></li>
+            </th:block>
 
-            <li class="page-item">
-              <a class="page-link" href="${pglink}${cntpg}">끝</a></li>
+            <!--<th:block th:if="${cpg - 1 gt 0}"><li class="page-item"></th:block>
+            <th:block th:unless="${cpg - 1 lt 0}"><li class="page-item disabled" ></th:block>-->
+            <li th:class="${(cpg - 1 gt 0)?'page-item':'page-item disabled'}">
+            <a class="page-link" th:href="|${pglink}${cpg - 1}|" th:text="이전"> </a></li>
+
+
+
+            <!--<li class="page-item">
+              <a class="page-link" href="${pglink}${cpg-1}">이전</a></li>-->
+
+            <th:block th:each="i : ${#numbers.sequence(stpg, stpg + 9)}">
+
+              <th:block th:if="${i le cntpg}">
+                <li th:class="${(i ne cpg)?'page-item ':'page-item active'}">
+                  <!--ne는 !=와 같다 i가 cpg(현재 페이지)와 같다면 page-item active 아니면 page-item-->
+                  <a class="page-link" th:href="|${pglink}${i}|" th:text="${i}"> </a>
+                </li>
+              </th:block>
+            </th:block>
+
+
+
+
+              <li th:class="${(cpg + 1 lt cntpg)?'page-item':'page-item disabled'}">
+                <!--참이면 page-item 거짓이면 page-item disabled-->
+                <a class="page-link" th:href="|${pglink}${cpg + 1}|" th:text="다음"> </a>
+              </li>
+
+
+            <th:block th:if="${cpg lt cntpg}"> <!--lt는>와 같음 만약 cntpg가 cntpg(페이지끝)보다 작으면 끝이 실행-->
+
+              <li class="page-item">
+                <a class="page-link" th:href="|${pglink}${cntpg}|" th:text="끝"> </a>
+              </li>
+
+            </th:block>
+
+
+
 
           </ul>
         </nav>

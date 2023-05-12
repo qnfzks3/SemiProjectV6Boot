@@ -29,16 +29,16 @@
     <div class="row mt-2 offset-2 col-8">
       <table>
         <tr>
-          <th class="vtit" colspan="2">${bd.title}</th>
+          <th class="vtit" colspan="2" th:text="${bd.title}">&nbsp;</th>
         </tr>
 
         <tr class="vinfo">
-          <td class="text-start">${bd.userid}</td>
-          <td class="text-end">${bd.regdate} / ${bd.thumbs} / ${bd.views}</td>
+          <td class="text-start" th:text="${bd.userid}">&nbsp;</td>
+          <td class="text-end" th:text="|${bd.regdate} / ${bd.thumbs} / ${bd.views}|">2023-05-05/0/0</td>
         </tr>
 
-        <tr><td class="vcont" colspan="2">
-          ${bd.content}
+        <tr><td class="vcont" colspan="2" th:text="${bd.content}">
+          &nbsp;
         </td></tr>
       </table>
     </div>
